@@ -2,7 +2,7 @@ backend:
   name: github
   repo: rafidhmondal73-glitch/ovrin-clothing
   branch: main
-  base_url: https://decap-cms-github-oauth.onrender.com # The authenticator from Step 1
+  base_url: https://decap-cms-github-oauth.onrender.com
   client_id: Ov23liYXgdN8cnOPEHjN
 
 media_folder: "images/uploads"
@@ -18,9 +18,9 @@ collections:
     format: "json"
     fields:
       - {label: "Item Name", name: "title", widget: "string"}
-      - {label: "Badge (e.g., NEW, CUSTOM)", name: "badge", widget: "string", required: false}
+      - {label: "Badge", name: "badge", widget: "string", required: false}
       - {label: "Product Image", name: "image", widget: "image"}
       - {label: "Fit Details", name: "fit", widget: "string"}
-      - {label: "Price (e.g., ₹1499)", name: "price", widget: "string"}
+      - {label: "Price", name: "price", widget: "string"}
       - {label: "Category", name: "category", widget: "select", options: ["Tees", "Outerwear", "Bottoms", "Accessories", "Custom"]}
       - {label: "Available Sizes", name: "sizes", widget: "list", default: ["S", "M", "L", "XL"]}
