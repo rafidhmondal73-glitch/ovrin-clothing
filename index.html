@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ovrin | Wear Your Story</title>
+    <!-- Modern GenZ Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --ovrin-red: #cc0000;
+            --bg-dark: #0a0a0a;
+            --card-bg: #141414;
+            --text-main: #f5f5f5;
+            --text-muted: #888;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body { 
+            font-family: 'Space Grotesk', sans-serif; 
+            background-color: var(--bg-dark); 
+            color: var(--text-main);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* --- Header & Logo --- */
+        header { 
+            padding: 2rem 1rem; 
+            text-align: center; 
+            position: relative;
+            z-index: 10;
+        }
+
+        #brand-logo { 
+            max-width: 160px; 
+            height: auto; 
+            display: block;
+            margin: 0 auto;
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            /* Adding a subtle glow to the logo in dark mode */
+            filter: drop-shadow(0 0 15px rgba(204, 0, 0, 0.2));
+        }
+
+        #brand-logo:hover {
+            transform: scale(1.05);
+        }
+
+        /* --- Hero Section --- */
+        .hero { 
+            text-align: center; 
+            margin: 4rem auto 6rem; 
+            max-width: 800px;
+            padding: 0 1rem;
+        }
+
+        .hero h1 { 
+            font-size: 3.5rem; 
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: -1px;
+        }
+
+        .highlight { 
+            color: var(--ovrin-red); 
+            text-shadow: 0 0 20px rgba(204, 0, 0, 0.4);
+        }
+
+        .hero p {
+            color: var(--text-muted);
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        /* --- Product Grid --- */
+        .container { 
+            max-width: 1200px; 
+            margin: 0 auto; 
+            padding: 0 1.5rem; 
+        }
+
+        .products { 
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem; 
+            margin-bottom: 6rem;
+        }
+
+        /* --- Stylish Cards --- */
+        .product-card { 
+            background: var(--card-bg); 
+            border: 1px solid #222;
+            border-radius: 16px; 
+            overflow: hidden;
+            text-align: left; 
+            transition: all 0.4s ease;
+            position: relative;
+        }
+
+        .product-card:hover {
+            border-color: var(--ovrin-red);
+            box-shadow: 0 15px 35px rgba(204, 0, 0, 0.15);
+            transform: translateY(-10px);
+        }
+
+        .image-container {
+            width: 100%;
+            height: 350px;
+            overflow: hidden;
+            background-color: #1a1a1a;
+        }
+
+        .product-card img { 
+            width: 100%; 
+            height: 100%; 
+            object-fit: cover;
+            transition: transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .product-card:hover img {
+            transform: scale(1.08);
+        }
+
+        .product-info {
+            padding: 2rem 1.5rem;
+        }
+
+        .product-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .product-desc {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            line-height: 1.4;
+        }
+
+        .price-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .price { 
+            font-weight: 700; 
+            color: var(--text-main); 
+            font-size: 1.5rem; 
+        }
+
+        /* --- Premium GenZ Button --- */
+        button { 
+            background: transparent; 
+            color: var(--ovrin-red); 
+            border: 1px solid var(--ovrin-red); 
+            padding: 10px 24px; 
+            cursor: pointer; 
+            border-radius: 30px; 
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-family: 'Space Grotesk', sans-serif;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            transition: color 0.3s ease;
+        }
+
+        button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--ovrin-red);
+            z-index: -1;
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+        }
+
+        button:hover {
+            color: var(--bg-dark);
+        }
+
+        button:hover::before {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+
+        /* --- Footer --- */
+        footer { 
+            text-align: center; 
+            padding: 4rem 1rem 2rem; 
+            background-color: #050505; 
+            border-top: 1px solid #222;
+        }
+
+        .footer-logo {
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-bottom: 0.5rem;
+        }
+
+        /* --- Scroll Reveal Animation Classes --- */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Staggered delays for product cards */
+        .delay-1 { transition-delay: 0.1s; }
+        .delay-2 { transition-delay: 0.2s; }
+        .delay-3 { transition-delay: 0.3s; }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .image-container { height: 300px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="reveal active">
+        <a href="#" id="brand-logo-link">
+            <!-- Ensure logo.png is uploaded to your GitHub repository -->
+            <img src="logo.png" alt="Ovrin Brand Logo" id="brand-logo">
+        </a>
+    </header>
+
+    <main class="container">
+        <section class="hero reveal">
+            <h1>Wear <span class="highlight">Your Story.</span></h1>
+            <p>Streetwear designed for the bold. Est. 2025.</p>
+        </section>
+
+        <section class="products">
+            <!-- Product 1 -->
+            <div class="product-card reveal delay-1">
+                <div class="image-container">
+                    <img src="https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?auto=format&fit=crop&q=80&w=600" alt="Signature Story Tee">
+                </div>
+                <div class="product-info">
+                    <h3>Signature Story Tee</h3>
+                    <p class="product-desc">Oversized drop-shoulder fit featuring high-density typography. Crafted for everyday comfort and street aesthetic.</p>
+                    <div class="price-row">
+                        <span class="price">₹1199</span>
+                        <button>Buy Now</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 2 -->
+            <div class="product-card reveal delay-2">
+                <div class="image-container">
+                    <img src="https://images.unsplash.com/photo-1509172088019-3f0e08f0a0d9?auto=format&fit=crop&q=80&w=600" alt="Premium Custom Jersey">
+                </div>
+                <div class="product-info">
+                    <h3>Premium Custom Jersey</h3>
+                    <p class="product-desc">Personalized football jersey crafted for the pitch and the streets. Customize with your own name and number.</p>
+                    <div class="price-row">
+                        <span class="price">₹1899</span>
+                        <button>Buy Now</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 3 -->
+            <div class="product-card reveal delay-3">
+                <div class="image-container">
+                    <img src="https://images.unsplash.com/photo-1624378439575-d100abc211d2?auto=format&fit=crop&q=80&w=600" alt="Ovrin Cargo Trousers">
+                </div>
+                <div class="product-info">
+                    <h3>Ovrin Cargo Trousers</h3>
+                    <p class="product-desc">Ultimate stretchable comfort with deep utility pockets. Engineered to move with you wherever the day takes you.</p>
+                    <div class="price-row">
+                        <span class="price">₹1599</span>
+                        <button>Buy Now</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="reveal">
+        <div class="footer-logo">OVRIN</div>
+        <p class="highlight" style="margin-bottom: 1rem; font-size: 0.9rem;">Wear your story.</p>
+        <p style="color: var(--text-muted); font-size: 0.8rem;">&copy; 2026 Ovrin. All rights reserved.</p>
+    </footer>
+
+    <!-- JavaScript for the Scroll Reveal Animation -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const reveals = document.querySelectorAll('.reveal');
+
+            const revealOnScroll = () => {
+                const windowHeight = window.innerHeight;
+                const elementVisible = 100;
+
+                reveals.forEach((reveal) => {
+                    const elementTop = reveal.getBoundingClientRect().top;
+                    if (elementTop < windowHeight - elementVisible) {
+                        reveal.classList.add('active');
+                    }
+                });
+            };
+
+            window.addEventListener('scroll', revealOnScroll);
+            // Trigger once on load to show elements already in viewport
+            revealOnScroll();
+        });
+    </script>
+</body>
+</html>
