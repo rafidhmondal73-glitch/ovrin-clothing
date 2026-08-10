@@ -2,8 +2,6 @@ backend:
   name: github
   repo: rafidhmondal73-glitch/ovrin-clothing
   branch: main
-  base_url: https://decap-cms-github-oauth.onrender.com
-  client_id: Ov23liYXgdN8cnOPEHjN
 
 media_folder: "images/uploads"
 public_folder: "/images/uploads"
