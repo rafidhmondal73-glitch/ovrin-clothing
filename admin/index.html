@@ -3,13 +3,11 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ovrin Syndicate | Admin Console</title>
-    
-    <!-- Using /admin/config.yml explicitly fixes the GitHub slash bug -->
+    <title>Ovrin|  Admin Console</title>
     <link href="/admin/config.yml" type="text/yaml" rel="cms-config-url">
-    
-    <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
   </head>
   <body>
+    <!-- Moving this script inside the body fixes the crash entirely -->
+    <script src="https://unpkg.com/decap-cms@^3.1.2/dist/decap-cms.js"></script>
   </body>
 </html>
